@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    
+<meta charset="UTF-8">
+    
+<title>Selected Entry</title>
+
+</head>
+
+<body>
+
+
+<ol>
+    
+<p> 
+{{entry_id}}. {{selected_word}}
+</p>
+ 
+<p>
+{{selected_meaning}}
+</p>   
+</ol>
+
+
+</body>
+
+</html>
