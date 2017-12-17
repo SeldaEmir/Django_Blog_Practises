@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Entries</title>
+</head>
+<body>
+    <h1>Welcome {{ request.user.username }}</h1>
+    <a href="/users/logout">Logout</a>
+
+    <a href="/"></a></br>
+    </br>
+    <br type="1">
+        {% for entry in entries %}
+                <h2>{{ entry.name }}</h2>
+                <p>{{ entry.description }}</p>
+                {% for tag in entry.tags.all %}
+                    {{ tag.name }}
+                {% endfor  %}
+        {% endfor %}
+    </br>
+<form method="POST">
+    {% csrf_token %}
+    <br>
+        <label for="name">Entry Name:</label>
+        <input id="name" type="text" name="name" maxlength="220"> &nbsp; &nbsp;&nbsp;
+        <label for="description">Entry Description:</label>
+        <input id="description" type="text" name="description" maxlength="520">&nbsp;&nbsp;&nbsp;
+        <label for="tags">Tags:</label>
+        <select id="tags" name="tags" multiple> &nbsp; &nbsp; &nbsp;
+        {% for tag in tags %}
+            <option value="{{ tag.id }}" >{{ tag.name }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
